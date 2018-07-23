@@ -1,0 +1,25 @@
+nodejs를 사용하여 만든 예제를 주어진 ip에 올리기
+ssh인 putty로 ip 14.63.171.43 접근
+node 실행 -> node main.js
+ip로 들어가면 예제가 뜬다. 하지만 ssh 연결 끊으면 끊김.
+
+-> 고민
+
+background로 연결하면 ssh연결 끊겨도 실행된다.
+node main.js &
+브라우저에서 접속시 화면 뜬다.
+창을 끄게 되니 또 연결 끊김.
+
+-> 창을 끊을 때 exit 명령어가 아닌 x 아이콘으로 끄면 백그라운드 프로세스도 죽나보다
+
+***
+1. 현재 백그라운드로 수행중인 작업 보려면
+jobs
+라고 치면 됨
+
+2. ps -ef|grep 찾고자하는프로세스이름
+ps -ef //프로세스 전체출력
+grep PROCESS_NAME // 프로세스 이름 검색
+awk '{print $2}' // 위에서 검색된 줄에서 2번째 항목(PID_출력
+
+3. kill -9 PROCESS_NUMBER //  kill명령어에 -9옵션을 주면 프로세스 번호로 중지
